@@ -1,14 +1,11 @@
 body {
   background-color: white;
-  font-family: roboto;
+  font-family: 'Roboto', sans-serif;
+  color: "333333";
 }
 
 h1 {
   color: #00264C;
-}
-
-p {
-  color: "333333";
 }
 
 .btn-outline-primary {
@@ -24,6 +21,10 @@ p {
 }
 
 .btn-country .btn-check:active+.btn-outline-primary, .btn-country .btn-check:checked+.btn-outline-primary, .btn-country .btn-outline-primary.active, .btn-country .btn-outline-primary.dropdown-toggle.show, .btn-country .btn-outline-primary:active, .btn-country .btn-outline-primary:hover {
+  background-color: #112C4A;
+}
+
+.btn-variant .btn-check:active+.btn-outline-primary, .btn-variant .btn-check:checked+.btn-outline-primary, .btn-variant  .btn-outline-primary.active, .btn-variant  .btn-outline-primary.dropdown-toggle.show, .btn-variant  .btn-outline-primary:active, .btn-variant  .btn-outline-primary:hover {
   background-color: #112C4A;
 }
 
