@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom stylesheet -->
+    <link href="./css/style.css" rel="stylesheet">
+
+    <!-- Load plotly.js -->
+	  <script src='https://cdn.plot.ly/plotly-2.2.0.min.js'></script>
+
+    <title>Interactive COVID-19 Dashboard</title>
+  </head>
+
+  <body>
+    <main aria-role="main">
+    <div class="container">
+      <div class="col-xs-12 col-lg-12">
+
+      <div class="row d-flex justify-content-center text-center">
+        <h1>Herd immunity, anyone?</h1>
+      </div>  <!-- Title -->
+
+      <div class="row d-flex justify-content-center text-center">
+        <h2> Choose Corona Variant </h2>
+
+        <div class="btn-group btn-variant col-lg-6" role="group">
+
+          <input type="radio" class="btn-check" name="btn_variant" id="btn_alpha" autocomplete="off" checked>
+          <label class="btn btn-outline-primary" for="btn_alpha">
+            Alpha
+          </label>
+
+          <input type="radio" class="btn-check" name="btn_variant" id="btn_beta" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btn_beta">
+            Beta
+          </label>
+
+          <input type="radio" class="btn-check" name="btn_variant" id="btn_gamma" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btn_gamma">
+            Gamma
+          </label>
+
+          <input type="radio" class="btn-check" name="btn_variant" id="btn_delta" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btn_delta">
+            Delta
+          </label>
+
+          <input type="radio" class="btn-check" name="btn_variant" id="btn_epsilon" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btn_epsilon">
+            Epsilon
+          </label>
+
+        </div>
+      </div>  <!-- Choose Variant -->
+
+      <div class="row d-flex justify-content-center text-center">
+        <h2> Choose Country </h2>
+
+        <div class="row btn-group btn-country" role="group" data-toggle="buttons">
+          <div class="btn-group-justified">
+            <input type="radio" class="btn-check" name="btn_country" id="btn_usa" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btn_usa">
+              <h3>United States</h3>
+              <img src="./img/USA.png"/>
+            </label>
+
+            <input type="radio" class="btn-check" name="btn_country" id="btn_denmark" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="btn_denmark">
+              <h3>Denmark</h3>
+              <img src="./img/Denmark.png"/>
+            </label>
+
+            <input type="radio" class="btn-check" name="btn_country" id="btn_germany" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btn_germany">
+              <h3>Germany</h3>
+              <img src="./img/Germany.png"/>
+            </label>
+          </div>
+
+          <p></p>
+
+          <div class="btn-group-justified">
+            <input type="radio" class="btn-check" name="btn_country" id="btn_france" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btn_france">
+              <h3>France</h3>
+              <img src="./img/France.png"/>
+            </label>
+
+            <input type="radio" class="btn-check" name="btn_country" id="btn_italy" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btn_italy">
+              <h3>Italy</h3>
+              <img src="./img/Italy.png"/>
+            </label>
+
+            <input type="radio" class="btn-check" name="btn_country" id="btn_spain" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btn_spain">
+              <h3>Spain</h3>
+              <img src="./img/Spain.png" class="countrySelected"/>
+            </label>
+          </div>
+        </div>
+      </div> <!-- Choose Country -->
+
+      <div class="row d-flex justify-content-center text-center">
+        <h1> When does the pandemic end? </h1>
+        <div id='gaugeplot'></div>
+      </div>
+
+    </div>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Plot script -->
+    <script type="text/javascript">
+    var data = [
+      {
+        domain: { x: [0, 1], y: [0, 1] },
+        value: 270,
+        title: { text: "Speed" },
+        type: "indicator",
+        mode: "gauge+number"
+      }
+      ];
+
+      var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+      Plotly.newPlot('gaugeplot', data, layout);
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,36 @@
+body {
+  background-color: white;
+  font-family: roboto;
+}
+
+h1 {
+  color: #00264C;
+}
+
+p {
+  color: "333333";
+}
+
+.btn-outline-primary {
+  border-color: #000000;
+}
+
+.btn-country img {
+  filter: invert(97%) sepia(89%) saturate(4675%) hue-rotate(174deg) brightness(91%) contrast(96%);
+}
+
+.btn-country h3 {
+  color: #000000;
+}
+
+.btn-country .btn-check:active+.btn-outline-primary, .btn-country .btn-check:checked+.btn-outline-primary, .btn-country .btn-outline-primary.active, .btn-country .btn-outline-primary.dropdown-toggle.show, .btn-country .btn-outline-primary:active, .btn-country .btn-outline-primary:hover {
+  background-color: #112C4A;
+}
+
+.btn-country .btn-check:active+.btn-outline-primary img, .btn-country .btn-check:checked+.btn-outline-primary img, .btn-country .btn-outline-primary.active img, .btn-country .btn-outline-primary.dropdown-toggle.show img, .btn-country .btn-outline-primary:active img, .btn-country .btn-outline-primary:hover img {
+  filter: invert(100%) sepia(4%) saturate(1314%) hue-rotate(288deg) brightness(115%) contrast(100%);
+}
+
+.btn-country .btn-check:active+.btn-outline-primary h3, .btn-country .btn-check:checked+.btn-outline-primary h3, .btn-country .btn-outline-primary.active h3, .btn-country .btn-outline-primary.dropdown-toggle.show h3, .btn-country .btn-outline-primary:active h3, .btn-country .btn-outline-primary:hover h3 {
+  color: #ffffff;
+}
