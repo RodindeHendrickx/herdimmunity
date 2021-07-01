@@ -17,6 +17,9 @@
 
     <link href="./css/style.css" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Interactive COVID-19 Dashboard</title>
   </head>
 
@@ -24,50 +27,52 @@
     <main aria-role="main">
     <div class="container">
       <div class="col-xs-12 col-lg-12">
-
+<!--
       <div class="row d-flex justify-content-center text-center my-5">
         <h1>Herd immunity, anyone?</h1>
-      </div>  <!-- Title -->
+      </div>
+-->
 
-      <div class="row d-flex justify-content-center text-center my-5">
+      <div class="row d-flex justify-content-center text-center my-4">
         <h3> Choose Corona Variant </h3>
 
         <div class="btn-group btn-variant justify-content-center my-2" role="group">
 
           <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_alpha" autocomplete="off" checked>
+            <input type="radio" class="btn-check" name="btn_variant" id="btn_wt" autocomplete="off" onclick="updateBars()" value="WildType">
+            <label class="btn btn-outline-primary" for="btn_wt">
+              WildType
+            </label>
+          </div>
+
+          <div class="d-flex mx-2">
+            <input type="radio" class="btn-check" name="btn_variant" id="btn_alpha" autocomplete="off" onclick="updateBars()" value="Alpha" checked>
             <label class="btn btn-outline-primary" for="btn_alpha">
               Alpha
             </label>
           </div>
 
           <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_beta" autocomplete="off">
+            <input type="radio" class="btn-check" name="btn_variant" id="btn_beta" autocomplete="off" onclick="updateBars()" value="Beta" >
             <label class="btn btn-outline-primary" for="btn_beta">
               Beta
             </label>
           </div>
 
           <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_gamma" autocomplete="off">
+            <input type="radio" class="btn-check" name="btn_variant" id="btn_gamma" autocomplete="off" onclick="updateBars()" value="Gamma">
             <label class="btn btn-outline-primary" for="btn_gamma">
               Gamma
             </label>
           </div>
 
           <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_delta" autocomplete="off">
+            <input type="radio" class="btn-check" name="btn_variant" id="btn_delta" autocomplete="off" onclick="updateBars()" value="Delta">
             <label class="btn btn-outline-primary" for="btn_delta">
               Delta
             </label>
           </div>
 
-          <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_epsilon" autocomplete="off">
-            <label class="btn btn-outline-primary" for="btn_epsilon">
-              Epsilon
-            </label>
-          </div>
         </div>
       </div>  <!-- Choose Variant -->
 
@@ -78,7 +83,7 @@
           <div class="btn-group" style="padding: 0;">
 
             <div class="mr-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_usa" autocomplete="off">
+              <input type="radio" class="btn-check" name="btn_country" id="btn_usa" autocomplete="off" onclick="updateBars()" value="USA" checked>
               <label class="btn btn-outline-primary" for="btn_usa">
                 <h5>U.S.A.</h5>
                 <img src="./img/USA.png"/ class="img-fluid">
@@ -86,7 +91,7 @@
             </div>
 
             <div class="mx-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_denmark" autocomplete="off" checked>
+              <input type="radio" class="btn-check" name="btn_country" id="btn_denmark" autocomplete="off" onclick="updateBars()" value="Denmark">
               <label class="btn btn-outline-primary" for="btn_denmark">
                 <h5>Denmark</h5>
                 <img src="./img/Denmark.png"/ class="img-fluid">
@@ -94,7 +99,7 @@
             </div>
 
             <div class="ml-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_germany" autocomplete="off">
+              <input type="radio" class="btn-check" name="btn_country" id="btn_germany" autocomplete="off" onclick="updateBars()" value="Germany">
               <label class="btn btn-outline-primary" for="btn_germany">
                 <h5>Germany</h5>
                 <img src="./img/Germany.png"/ class="img-fluid">
@@ -106,7 +111,7 @@
           <div class="btn-group mt-4" style="padding: 0;">
 
             <div class="mx-r">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_france" autocomplete="off">
+              <input type="radio" class="btn-check" name="btn_country" id="btn_france" autocomplete="off" onclick="updateBars()" value="France">
               <label class="btn btn-outline-primary" for="btn_france">
                 <h5>France</h5>
                 <img src="./img/France.png"/ class="img-fluid">
@@ -114,7 +119,7 @@
             </div>
 
             <div class="mx-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_italy" autocomplete="off">
+              <input type="radio" class="btn-check" name="btn_country" id="btn_italy" autocomplete="off" onclick="updateBars()" value="Italy">
               <label class="btn btn-outline-primary" for="btn_italy">
                 <h5>Italy</h5>
                 <img src="./img/Italy.png"/ class="img-fluid">
@@ -122,7 +127,7 @@
             </div>
 
             <div class="ml-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_spain" autocomplete="off">
+              <input type="radio" class="btn-check" name="btn_country" id="btn_spain" autocomplete="off" onclick="updateBars()" value="Spain">
               <label class="btn btn-outline-primary" for="btn_spain">
                 <h5>Spain</h5>
                 <img src="./img/Spain.png" class="img-fluid"/>
@@ -133,9 +138,16 @@
         </div>
       </div> <!-- Choose Country -->
 
-      <div class="row d-flex justify-content-center text-center my-5">
-        <h3> When does the pandemic end? </h3>
-        <div id='gaugeplot'></div>
+      <div class="row d-flex justify-content-center text-center my-3">
+        <h1> When does the pandemic end?</h1>
+        <div class="progress col-lg-6 my-3" style="height: 2rem;">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 47%">47%</div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-custom bar-required" style="width: 30%">77%</div>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center text-center my-3">
+        <h5> This information was last updated on July 1st 2021 </h5>
       </div>
 
     </div>
@@ -143,6 +155,138 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+      function getBasicReproductionNumber(variant) {
+        // Wildtype, Alpha, Beta, Gamma, Delta
+        switch(variant) {
+          case 'WildType':
+            return 2.6
+          case 'Alpha':
+            return 4.5
+          case 'Beta':
+            return 1.0
+          case 'Gamma':
+            return 1.0
+          case 'Delta':
+            return 6.5
+          default:
+            return 1
+        }
+      }
+
+      function getVaccinatedPercentage(country) {
+        switch(country) {
+          case "USA":
+            vaccinated_percentage = 47;
+            break;
+          case "Denmark":
+            vaccinated_percentage = 30;
+            break;
+          case "Germany":
+            vaccinated_percentage = 31;
+            break;
+          case "France":
+            vaccinated_percentage = 50;
+            break;
+          case "Italy":
+            vaccinated_percentage = 55;
+            break;
+          case "Spain":
+            vaccinated_percentage = 32;
+            break;
+          default:
+            vaccinated_percentage = 0;
+            break;
+        }
+        return vaccinated_percentage;
+      }
+
+      function getVaccineEfficacies(variant)
+      {
+        // BioNTech, Moderna, Johnson, AstraZeneca
+        switch(variant) {
+          case "WildType":
+            return [0.95, 0.94, 0.66, 0.62];
+          case "Alpha":
+            return [0.87,	0.94,	0.72,	0.75];
+          case "Beta":
+            return [0.72,	0.85,	0.64,	0.10];
+          case "Gamma":
+            return [0.82,	0.85,	0.64,	0.35];
+          case "Delta":
+            return [0.82,	0.85,	0.64,	0.35];
+        }
+      }
+
+      function getAverageEffectiveness(country, variant) {
+        // BioNTech, Moderna, Johnson, AstraZeneca
+        let vaccines = [0, 0, 0, 0];
+        switch(country) {
+          case "USA":
+            vaccines = [81443204,	60519294,	12167937,	0];
+            break;
+          case "Denmark":
+            vaccines = [1546836, 191151, 43438, 1516];
+            break;
+          case "Germany":
+            vaccines = [20472529,	2176477, 1661441,	1521029];
+            break;
+          case "France":
+            vaccines = [13189025,	1499666, 353349,	2046874];
+            break;
+          case "Italy":
+            vaccines = [23893985,	3180700, 2379112, 3949418];
+            break;
+          case "Spain":
+            vaccines = [11093261,	1546908, 1122802, 1464957];
+            break;
+          default:
+            break;
+        }
+
+        let avg_effectiveness = 0;
+        let total = vaccines[0] + vaccines[1] + vaccines[2] + vaccines[3];
+
+        // Average efficacy
+        const efficacies = getVaccineEfficacies(variant);
+        for (let i = 0; i < 4; i++) {
+          percentage = vaccines[i]/total;
+          avg_effectiveness += efficacies[i]*percentage;
+        }
+
+        return avg_effectiveness;
+      }
+
+      function updateBars()
+      {
+        // Get selected variant
+        let variant = $("input:radio[name='btn_variant']:checked").val();
+
+        // Get selected country
+        let country = $("input:radio[name='btn_country']:checked").val();
+
+        vaccinated_percentage = getVaccinatedPercentage(country);
+        let average_effectiveness = getAverageEffectiveness(country, variant);
+
+        R = getBasicReproductionNumber(variant);
+        let required_percentage = (1-1/R)/average_effectiveness * 100;
+        // Round to one digit
+        required_percentage = Math.round( required_percentage * 10 ) / 10;
+
+        $(".progress .progress-bar.bg-success").css('width', vaccinated_percentage + "%");
+        $(".progress .progress-bar.bg-success").text(vaccinated_percentage + "%");
+
+        $(".progress .progress-bar.bar-required").css('width', (required_percentage-vaccinated_percentage) + "%");
+        $(".progress .progress-bar.bar-required").text(required_percentage + "%");
+
+        if( required_percentage >= 100 ) {
+          $(".progress .progress-bar.bar-required").css('background-color', "red");
+        } else {
+          $(".progress .progress-bar.bar-required").css('background-color', "orange");
+        }
+      }
+    </script>
 
   </body>
 </html>

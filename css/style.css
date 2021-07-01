@@ -20,6 +20,11 @@ h1 {
   color: #000000;
 }
 
+.btn-country label.btn {
+  min-height: 130px;
+  min-width: 110px;
+}
+
 .btn-country .btn-check:active+.btn-outline-primary, .btn-country .btn-check:checked+.btn-outline-primary, .btn-country .btn-outline-primary.active, .btn-country .btn-outline-primary.dropdown-toggle.show, .btn-country .btn-outline-primary:active, .btn-country .btn-outline-primary:hover {
   background-color: #112C4A;
 }
@@ -34,4 +39,8 @@ h1 {
 
 .btn-country .btn-check:active+.btn-outline-primary h3, .btn-country .btn-check:checked+.btn-outline-primary h3, .btn-country .btn-outline-primary.active h3, .btn-country .btn-outline-primary.dropdown-toggle.show h3, .btn-country .btn-outline-primary:active h3, .btn-country .btn-outline-primary:hover h3 {
   color: #ffffff;
+}
+
+.progress-bar-custom {
+  background-color: orange;
 }
