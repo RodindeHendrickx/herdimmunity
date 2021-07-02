@@ -20,9 +20,8 @@ h1 {
   color: #000000;
 }
 
-.btn-country label.btn {
-  min-height: 130px;
-  min-width: 110px;
+.btn-country div span {
+  font-size: 0.9rem;
 }
 
 .btn-country .btn-check:active+.btn-outline-primary, .btn-country .btn-check:checked+.btn-outline-primary, .btn-country .btn-outline-primary.active, .btn-country .btn-outline-primary.dropdown-toggle.show, .btn-country .btn-outline-primary:active, .btn-country .btn-outline-primary:hover {
@@ -42,5 +41,5 @@ h1 {
 }
 
 .progress-bar-custom {
-  background-color: orange;
+  background-color: #497ad6;
 }

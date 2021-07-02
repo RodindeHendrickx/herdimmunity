@@ -12,9 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,300&display=swap" rel="stylesheet">
 
-    <!-- Custom stylesheet -->
+    <!-- Custom stylesheets -->
     <link href="./css/color-overrides.css" rel="stylesheet">
-
     <link href="./css/style.css" rel="stylesheet">
 
     <!-- jQuery -->
@@ -25,134 +24,133 @@
 
   <body>
     <main aria-role="main">
-    <div class="container">
-      <div class="col-xs-12 col-lg-12">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-12">
 
-      <div class="row d-flex justify-content-center text-center my-3">
-        <h1> When does the pandemic end?</h1>
+        <div class="row text-center my-2">
+          <h1> When does the pandemic end?</h1>
+        </div>
+
+        <div class="row text-center my-2">
+          <h3> Choose the dominant SARS-CoV2 variant </h3>
+
+          <div class="d-flex flex-row flex-wrap justify-content-center btn-variant my-2">
+
+            <div class="m-2">
+              <input type="radio" class="btn-check" name="btn_variant" id="btn_wt" autocomplete="off" onclick="updateBars()" value="WildType" checked>
+              <label class="btn btn-outline-primary" for="btn_wt">
+                WildType
+              </label>
+            </div>
+
+            <div class="m-2">
+              <input type="radio" class="btn-check" name="btn_variant" id="btn_alpha" autocomplete="off" onclick="updateBars()" value="Alpha">
+              <label class="btn btn-outline-primary" for="btn_alpha">
+                Alpha
+              </label>
+            </div>
+
+            <div class="m-2">
+              <input type="radio" class="btn-check" name="btn_variant" id="btn_beta" autocomplete="off" onclick="updateBars()" value="Beta" >
+              <label class="btn btn-outline-primary" for="btn_beta">
+                Beta
+              </label>
+            </div>
+
+            <div class="m-2">
+              <input type="radio" class="btn-check" name="btn_variant" id="btn_gamma" autocomplete="off" onclick="updateBars()" value="Gamma">
+              <label class="btn btn-outline-primary" for="btn_gamma">
+                Gamma
+              </label>
+            </div>
+
+            <div class="m-2">
+              <input type="radio" class="btn-check" name="btn_variant" id="btn_delta" autocomplete="off" onclick="updateBars()" value="Delta">
+              <label class="btn btn-outline-primary" for="btn_delta">
+                Delta
+              </label>
+            </div>
+
+          </div>
+        </div>  <!-- Choose Variant -->
+
+        <div class="row text-center my-2">
+          <div class="col-lg-6 offset-lg-3">
+
+          <h3> Choose Country </h3>
+
+          <div class="d-flex flex-row flex-wrap btn-country my-2 justify-content-center">
+
+              <div class="col-3 m-2">
+                <input type="radio" class="btn-check" name="btn_country" id="btn_usa" autocomplete="off" onclick="updateBars()" value="USA">
+                <label class="btn btn-outline-primary" for="btn_usa">
+                  <span>U.S.A.</span>
+                  <img src="./img/USA.png"/ class="img-fluid">
+                </label>
+              </div>
+
+              <div class="col-3 m-2">
+                <input type="radio" class="btn-check" name="btn_country" id="btn_denmark" autocomplete="off" onclick="updateBars()" value="Denmark" checked>
+                <label class="btn btn-outline-primary" for="btn_denmark">
+                  <span>Denmark</span>
+                  <img src="./img/Denmark.png"/ class="img-fluid">
+                </label>
+              </div>
+
+              <div class="col-3 m-2">
+                <input type="radio" class="btn-check" name="btn_country" id="btn_germany" autocomplete="off" onclick="updateBars()" value="Germany">
+                <label class="btn btn-outline-primary" for="btn_germany">
+                  <span>Germany</span>
+                  <img src="./img/Germany.png"/ class="img-fluid">
+                </label>
+              </div>
+
+              <div class="col-3 m-2">
+                <input type="radio" class="btn-check" name="btn_country" id="btn_france" autocomplete="off" onclick="updateBars()" value="France">
+                <label class="btn btn-outline-primary" for="btn_france">
+                  <span>France</span>
+                  <img src="./img/France.png"/ class="img-fluid">
+                </label>
+              </div>
+
+              <div class="col-3 m-2">
+                <input type="radio" class="btn-check" name="btn_country" id="btn_italy" autocomplete="off" onclick="updateBars()" value="Italy">
+                <label class="btn btn-outline-primary" for="btn_italy">
+                  <span>Italy</span>
+                  <img src="./img/Italy.png"/ class="img-fluid">
+                </label>
+              </div>
+
+              <div class="col-3 m-2">
+                <input type="radio" class="btn-check" name="btn_country" id="btn_spain" autocomplete="off" onclick="updateBars()" value="Spain">
+                <label class="btn btn-outline-primary" for="btn_spain">
+                  <span>Spain</span>
+                  <img src="./img/Spain.png" class="img-fluid"/>
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </div> <!-- Choose Country -->
+
+        <div class="row d-flex justify-content-center text-center my-3">
+          <h3> Herd-immunity when </h3>
+          <div>
+            <h1 class="immunity"> 83% </h1>
+            <p> of this country is fully vaccinated </p>
+          </div>
+          <div class="progress col-lg-6 my-3" style="height: 2rem;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 47%">47% currently</div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-custom bar-required" style="width: 30%">77% required</div>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center text-center my-3">
+          <p> Last updated on July 1st 2021 </p>
+        </div>
       </div>
-
-      <div class="row d-flex justify-content-center text-center my-3">
-        <h3> Choose the dominant SARS-CoV2 variant </h3>
-
-        <div class="btn-group btn-variant justify-content-center my-2" role="group">
-
-          <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_wt" autocomplete="off" onclick="updateBars()" value="WildType">
-            <label class="btn btn-outline-primary" for="btn_wt">
-              WildType
-            </label>
-          </div>
-
-          <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_alpha" autocomplete="off" onclick="updateBars()" value="Alpha" checked>
-            <label class="btn btn-outline-primary" for="btn_alpha">
-              Alpha
-            </label>
-          </div>
-
-          <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_beta" autocomplete="off" onclick="updateBars()" value="Beta" >
-            <label class="btn btn-outline-primary" for="btn_beta">
-              Beta
-            </label>
-          </div>
-
-          <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_gamma" autocomplete="off" onclick="updateBars()" value="Gamma">
-            <label class="btn btn-outline-primary" for="btn_gamma">
-              Gamma
-            </label>
-          </div>
-
-          <div class="d-flex mx-2">
-            <input type="radio" class="btn-check" name="btn_variant" id="btn_delta" autocomplete="off" onclick="updateBars()" value="Delta">
-            <label class="btn btn-outline-primary" for="btn_delta">
-              Delta
-            </label>
-          </div>
-
-        </div>
-      </div>  <!-- Choose Variant -->
-
-      <div class="row text-center my-2">
-        <h3> Choose Country </h3>
-
-        <div class="row btn-country my-2 col-lg-4 offset-lg-4 justify-content-center" role="group" data-toggle="buttons">
-          <div class="btn-group" style="padding: 0;">
-
-            <div class="mr-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_usa" autocomplete="off" onclick="updateBars()" value="USA" checked>
-              <label class="btn btn-outline-primary" for="btn_usa">
-                <h5>U.S.A.</h5>
-                <img src="./img/USA.png"/ class="img-fluid">
-              </label>
-            </div>
-
-            <div class="mx-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_denmark" autocomplete="off" onclick="updateBars()" value="Denmark">
-              <label class="btn btn-outline-primary" for="btn_denmark">
-                <h5>Denmark</h5>
-                <img src="./img/Denmark.png"/ class="img-fluid">
-              </label>
-            </div>
-
-            <div class="ml-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_germany" autocomplete="off" onclick="updateBars()" value="Germany">
-              <label class="btn btn-outline-primary" for="btn_germany">
-                <h5>Germany</h5>
-                <img src="./img/Germany.png"/ class="img-fluid">
-              </label>
-            </div>
-
-          </div>
-
-          <div class="btn-group mt-4" style="padding: 0;">
-
-            <div class="mx-r">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_france" autocomplete="off" onclick="updateBars()" value="France">
-              <label class="btn btn-outline-primary" for="btn_france">
-                <h5>France</h5>
-                <img src="./img/France.png"/ class="img-fluid">
-              </label>
-            </div>
-
-            <div class="mx-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_italy" autocomplete="off" onclick="updateBars()" value="Italy">
-              <label class="btn btn-outline-primary" for="btn_italy">
-                <h5>Italy</h5>
-                <img src="./img/Italy.png"/ class="img-fluid">
-              </label>
-            </div>
-
-            <div class="ml-4">
-              <input type="radio" class="btn-check" name="btn_country" id="btn_spain" autocomplete="off" onclick="updateBars()" value="Spain">
-              <label class="btn btn-outline-primary" for="btn_spain">
-                <h5>Spain</h5>
-                <img src="./img/Spain.png" class="img-fluid"/>
-              </label>
-            </div>
-
-          </div>
-        </div>
-      </div> <!-- Choose Country -->
-
-      <div class="row d-flex justify-content-center text-center my-3">
-        <h3> Herd-immunity will be reached when </h3>
-        <div>
-          <h1 class="immunity"> 83% </h1>
-          <p> of this country is fully vaccinated </p>
-        </div>
-        <div class="progress col-lg-6 my-3" style="height: 2rem;">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 47%">47% currently</div>
-          <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-custom bar-required" style="width: 30%">77% required</div>
-        </div>
-      </div>
-
-      <div class="row d-flex justify-content-center text-center my-3">
-        <h5> This information was last updated on July 1st 2021 </h5>
-      </div>
-
+    </div>
     </div>
     </main>
 
@@ -160,7 +158,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script>
-      $(document).ready(function(){ updateBars(); }) 
+      $(document).ready(function(){ updateBars(); })
 
       function getBasicReproductionNumber(variant) {
         // Wildtype, Alpha, Beta, Gamma, Delta
