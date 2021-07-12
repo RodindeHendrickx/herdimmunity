@@ -43,3 +43,7 @@ h1 {
 .progress-bar-custom {
   background-color: #497ad6;
 }
+
+.nounderline {
+  text-decoration: none !important
+}
