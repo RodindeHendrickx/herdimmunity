@@ -16,9 +16,7 @@
     <link href="./css/color-overrides.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <!-- Charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Interactive COVID-19 Dashboard</title>
@@ -28,61 +26,66 @@
     <main aria-role="main">
     <div class="container p-4">
       <div class="row">
-        <div class="col-12">
-
-        <div class="row text-center my-2">
+        <div class="text-center my-2">
           <h1> When does the pandemic end?</h1>
         </div>
+      </div>
 
-        <div class="row text-center my-2">
-          <h3> Choose the dominant SARS-CoV2 variant </h3>
+      <div class="row">
 
-          <div class="d-flex flex-row flex-wrap justify-content-center btn-variant my-2">
-
-            <div class="m-2">
-              <input type="radio" class="btn-check" name="btn_variant" id="btn_wt" autocomplete="off" onclick="updateBars()" value="WildType" checked>
-              <label class="btn btn-outline-primary" for="btn_wt">
-                WildType
-              </label>
+        <!-- Selection options -->
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="text-center my-2">
+              <h3> Choose the <a href="#" class="nounderline" data-toggle="tooltip" title="For simplicity we assume 100% of infections with the chosen strain.">dominant</a> SARS-CoV2 variant </h3>
             </div>
 
-            <div class="m-2">
-              <input type="radio" class="btn-check" name="btn_variant" id="btn_alpha" autocomplete="off" onclick="updateBars()" value="Alpha">
-              <label class="btn btn-outline-primary" for="btn_alpha">
-                Alpha
-              </label>
-            </div>
+            <div class="d-flex flex-row flex-wrap justify-content-center btn-variant my-2">
 
-            <div class="m-2">
-              <input type="radio" class="btn-check" name="btn_variant" id="btn_beta" autocomplete="off" onclick="updateBars()" value="Beta" >
-              <label class="btn btn-outline-primary" for="btn_beta">
-                Beta
-              </label>
-            </div>
+              <div class="m-2">
+                <input type="radio" class="btn-check" name="btn_variant" id="btn_wt" autocomplete="off" onclick="updateBars()" value="Original" checked>
+                <label class="btn btn-outline-primary" for="btn_wt">
+                  Original
+                </label>
+              </div>
 
-            <div class="m-2">
-              <input type="radio" class="btn-check" name="btn_variant" id="btn_gamma" autocomplete="off" onclick="updateBars()" value="Gamma">
-              <label class="btn btn-outline-primary" for="btn_gamma">
-                Gamma
-              </label>
-            </div>
+              <div class="m-2">
+                <input type="radio" class="btn-check" name="btn_variant" id="btn_alpha" autocomplete="off" onclick="updateBars()" value="Alpha">
+                <label class="btn btn-outline-primary" for="btn_alpha">
+                  Alpha
+                </label>
+              </div>
 
-            <div class="m-2">
-              <input type="radio" class="btn-check" name="btn_variant" id="btn_delta" autocomplete="off" onclick="updateBars()" value="Delta">
-              <label class="btn btn-outline-primary" for="btn_delta">
-                Delta
-              </label>
-            </div>
+              <div class="m-2">
+                <input type="radio" class="btn-check" name="btn_variant" id="btn_beta" autocomplete="off" onclick="updateBars()" value="Beta" >
+                <label class="btn btn-outline-primary" for="btn_beta">
+                  Beta
+                </label>
+              </div>
 
+              <div class="m-2">
+                <input type="radio" class="btn-check" name="btn_variant" id="btn_gamma" autocomplete="off" onclick="updateBars()" value="Gamma">
+                <label class="btn btn-outline-primary" for="btn_gamma">
+                  Gamma
+                </label>
+              </div>
+
+              <div class="m-2">
+                <input type="radio" class="btn-check" name="btn_variant" id="btn_delta" autocomplete="off" onclick="updateBars()" value="Delta">
+                <label class="btn btn-outline-primary" for="btn_delta">
+                  Delta
+                </label>
+              </div>
+
+            </div>
           </div>
-        </div>  <!-- Choose Variant -->
 
-        <div class="row text-center my-2">
-          <div class="col-lg-6 offset-lg-3">
+          <div class="row">
+            <div class="text-center my-2">
+              <h3> Choose Country </h3>
+            </div>
 
-          <h3> Choose Country </h3>
-
-          <div class="d-flex flex-row flex-wrap btn-country my-2 justify-content-center">
+            <div class="d-flex flex-row flex-wrap btn-country my-2 justify-content-center">
 
               <div class="col-3 m-2">
                 <input type="radio" class="btn-check" name="btn_country" id="btn_usa" autocomplete="off" onclick="updateBars()" value="USA">
@@ -110,7 +113,7 @@
 
               <div class="col-3 m-2">
                 <input type="radio" class="btn-check" name="btn_country" id="btn_france" autocomplete="off" onclick="updateBars()" value="France">
-                <label class="btn btn-outline-primary" for="btn_france">
+                <label class="btn btn-outline-primary" for="btn_france" data-toggle="tooltip" data-placement="left" title="In France, for a large fraction of fully vaccinated people (roughly 50%) the vaccine they obtained is undocumented. We assumed those vaccines are distributed in the same ratio as the known ones.">
                   <span>France</span>
                   <img src="./img/France.png"/ class="img-fluid">
                 </label>
@@ -132,66 +135,57 @@
                 </label>
               </div>
             </div>
-
-          </div>
-        </div> <!-- Choose Country -->
-
-        <div class="row d-flex justify-content-center text-center my-3">
-          <h3> Herd-immunity when </h3>
-          <div>
-            <h1 class="immunity"> 83% </h1>
-            <p> of this country is fully vaccinated </p>
-          </div>
-
-          <div class="progress col-lg-6 my-3" style="height: 2rem;">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 47%">47% currently</div>
-            <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-custom bar-required" style="width: 30%">77% required</div>
           </div>
         </div>
 
-        <!-- <div class="row d-flex justify-content-center text-center my-3">
-          <h3> This country is using these vaccines: </h3>
+        <!-- Display column -->
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="text-center my-2">
+              <h3> Herd-immunity when </h3>
+            </div>
 
-          <div class="row d-flex col-lg-8 text-left my-1"> BioNTech/Pfizer </div>
-          <div class="progress col-lg-8">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bar-biontech" style="width: 25%"></div>
+            <div class="text-center justify-content-center my-2">
+              <h1 class="immunity"> 83% </h1>
+              <p> of this country is fully vaccinated </p>
+            </div>
           </div>
 
-          <div class="row d-flex col-lg-8 text-left my-1"> Moderna </div>
-          <div class="progress col-lg-8">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bar-moderna" style="width: 25%"></div>
+          <div class="row justify-content-center my-2">
+            <div class="progress col my-1" style="height: 2rem;">
+              <div class="progress-bar bg-success" style="width: 47%">47% currently</div>
+              <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-custom bar-required" style="width: 30%">77% required</div>
+            </div>
           </div>
 
-          <div class="row d-flex col-lg-8 text-left my-1"> Johnson&Johnson </div>
-          <div class="progress col-lg-8">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bar-johnson" style="width: 25%"></div>
+          <div class="row justify-content-center">
+            <div class="row d-flex col-sm-6 justify-content-center text-center my-3">
+              <canvas id="myChart"></canvas>
+            </div>
           </div>
-
-          <div class="row d-flex col-lg-8 text-left my-1"> AstraZeneca </div>
-          <div class="progress col-lg-8">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bar-astrazeneca" style="width: 25%"></div>
-          </div>
-        </div> -->
-
-        <div class="row d-flex justify-content-center">
-          <div class="row d-flex col-sm-4 justify-content-center text-center my-3">
-            <canvas id="myChart"></canvas>
-          </div>
-        </div>
-
-        <div class="row d-flex justify-content-center text-center my-3">
-          <p> Last updated on July 1st 2021 </p>
         </div>
 
       </div>
-    </div>
+
+      <div class="row"> <!-- Footer -->
+        <div class="text-center my-3">
+          <p> Last updated on July 11th 2021 </p>
+        </div>
+      </div>
     </div>
     </main>
 
     <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script>
+
+      // Enable tooltips
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
 
       let chart = 0;
       $(document).ready(function(){
@@ -201,7 +195,7 @@
             {
               label: 'Vaccines',
               data: [0, 0, 0, 0],
-              backgroundColor: ['red', 'green', 'blue', 'orange'],
+              backgroundColor: ['#1797CE', '#89BD21', '#F1D628', '#E75A05'],
             }
           ]
         };
@@ -230,18 +224,18 @@
       })
 
       function getBasicReproductionNumber(variant) {
-        // Wildtype, Alpha, Beta, Gamma, Delta
+        // Original, Alpha, Beta, Gamma, Delta
         switch(variant) {
-          case 'WildType':
-            return 2.6
+          case 'Original':
+            return 3.14
           case 'Alpha':
-            return 4.5
+            return 4.89
           case 'Beta':
-            return 1.55*2.6
+            return 4.71
           case 'Gamma':
-            return 1.8*2.6
+            return 4.71
           case 'Delta':
-            return 6.5
+            return 6.19
           default:
             return 1
         }
@@ -278,7 +272,7 @@
       {
         // BioNTech, Moderna, Johnson, AstraZeneca
         switch(variant) {
-          case "WildType":
+          case "Original":
             return [0.95, 0.94, 0.66, 0.62];
           case "Alpha":
             return [0.87,	0.94,	0.72,	0.75];
@@ -294,22 +288,22 @@
       function getVaccineNumbers(country) {
         switch(country) {
           case "USA":
-            vaccines = [81443204,	60519294,	12167937,	0];
-            break;
-          case "Denmark":
-            vaccines = [1546836, 191151, 43438, 1516];
+            vaccines = [83926277,	61742191,	12545907,	0, 73191];
             break;
           case "Germany":
-            vaccines = [20472529,	2176477, 1661441,	1521029];
+            vaccines = [23438440, 2694536,	1905953, 2313960, 0];
+            break;
+          case "Denmark":
+            vaccines = [1861405,	217044,	46515,	1715,	0];
             break;
           case "France":
-            vaccines = [13189025,	1499666, 353349,	2046874];
+            vaccines = [17143749,	2170816,	521757,	2694113, 22028979];
             break;
           case "Italy":
-            vaccines = [23893985,	3180700, 2379112, 3949418];
+            vaccines = [28823648,	4234585,	2475688,	5882975,	0];
             break;
           case "Spain":
-            vaccines = [11093261,	1546908, 1122802, 1464957];
+            vaccines = [13020678, 1708849,	1324854,	2596852,	0];
             break;
           default:
             break;
@@ -323,6 +317,14 @@
         let avg_effectiveness = 0;
         let total = vaccines[0] + vaccines[1] + vaccines[2] + vaccines[3];
 
+        // Distribute the unidentified vaccines according to the other ones
+        for (let i = 0; i < 4; i++) {
+          percentage = vaccines[i]/total;
+          vaccines[i] += percentage*vaccines[4];
+        }
+
+        // Update the total
+        total = vaccines[0] + vaccines[1] + vaccines[2] + vaccines[3];
         // Average efficacy
         const efficacies = getVaccineEfficacies(variant);
         for (let i = 0; i < 4; i++) {
@@ -359,12 +361,19 @@
 
         $(".immunity").text(required_percentage + "%");
 
+        if( required_percentage <= 75 ) {
+          $(".progress .progress-bar.bar-required").css('background-color', "#0d6efd");
+          $(".immunity").css('color', "#0d6efd");
+        }
+
+        if( (required_percentage > 75) && (required_percentage < 100) ) {
+          $(".progress .progress-bar.bar-required").css('background-color', "orange");
+          $(".immunity").css('color', "orange");
+        }
+
         if( required_percentage >= 100 ) {
           $(".progress .progress-bar.bar-required").css('background-color', "red");
           $(".immunity").css('color', "red");
-        } else {
-          $(".progress .progress-bar.bar-required").css('background-color', "orange");
-          $(".immunity").css('color', "orange");
         }
 
         let vaccines = getVaccineNumbers(country);
@@ -375,15 +384,6 @@
           percentage = vaccines[i]/total * 100;
           vaccine_percentages.push( Math.round( percentage * 10 ) / 10 )
         }
-
-        // $(".progress .progress-bar.bar-biontech").css('width', vaccine_percentages[0] + "%");
-        // $(".progress .progress-bar.bar-biontech").text(vaccine_percentages[0] + "%");
-        // $(".progress .progress-bar.bar-moderna").css('width', vaccine_percentages[1] + "%");
-        // $(".progress .progress-bar.bar-moderna").text(vaccine_percentages[1] + "%");
-        // $(".progress .progress-bar.bar-johnson").css('width', vaccine_percentages[2] + "%");
-        // $(".progress .progress-bar.bar-johnson").text(vaccine_percentages[2] + "%");
-        // $(".progress .progress-bar.bar-astrazeneca").css('width', vaccine_percentages[3] + "%");
-        // $(".progress .progress-bar.bar-astrazeneca").text(vaccine_percentages[3] + "%");
 
         chart.data.datasets[0].data = vaccines;
         chart.update();
