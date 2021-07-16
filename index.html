@@ -229,7 +229,7 @@
           case 'Original':
             return 3.14
           case 'Alpha':
-            return 4.89
+            return 4.90
           case 'Beta':
             return 4.71
           case 'Gamma':
@@ -244,22 +244,22 @@
       function getVaccinatedPercentage(country) {
         switch(country) {
           case "USA":
-            vaccinated_percentage = 47;
+            vaccinated_percentage = 48;
             break;
           case "Denmark":
-            vaccinated_percentage = 30;
+            vaccinated_percentage = 37;
             break;
           case "Germany":
-            vaccinated_percentage = 31;
+            vaccinated_percentage = 37;
             break;
           case "France":
-            vaccinated_percentage = 50;
+            vaccinated_percentage = 66;
             break;
           case "Italy":
-            vaccinated_percentage = 55;
+            vaccinated_percentage = 69;
             break;
           case "Spain":
-            vaccinated_percentage = 32;
+            vaccinated_percentage = 40;
             break;
           default:
             vaccinated_percentage = 0;
@@ -273,15 +273,15 @@
         // BioNTech, Moderna, Johnson, AstraZeneca
         switch(variant) {
           case "Original":
-            return [0.95, 0.94, 0.66, 0.62];
+            return [0.95, 0.94, 0.66, 0.64];
           case "Alpha":
-            return [0.87,	0.94,	0.72,	0.75];
+            return [0.89,	0.92,	0.72,	0.75];
           case "Beta":
-            return [0.72,	0.85,	0.64,	0.10];
+            return [0.84,	0.96,	0.56,	0.10];
           case "Gamma":
-            return [0.82,	0.85,	0.64,	0.35];
+            return [0.84,	0.79,	0.56,	0.47];
           case "Delta":
-            return [0.82,	0.85,	0.64,	0.35];
+            return [0.87,	0.79,	0.56,	0.47];
         }
       }
 
